@@ -1,3 +1,4 @@
+using EFCoreCrud.DataConfig;
 using EFCoreCrud.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ public sealed class ApplicationContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserConfig).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }
